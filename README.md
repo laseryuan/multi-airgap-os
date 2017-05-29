@@ -11,6 +11,7 @@ apt-get install gdisk
 sudo -i
 lsblk
 umount /dev/sdX1
+sgdisk -p /dev/sdX
 sgdisk --zap-all /dev/sdX # may need to run twice and remove disk
 lsblk
 sgdisk --new=1:0:0 --typecode=1:ef00 /dev/sdX
@@ -33,7 +34,7 @@ mv /tmp/ubuntu-16.04.2-desktop-amd64.iso /mnt/USB/
 sha256sum /mnt/USB/ubuntu.iso # check file integrity
 ```
 
-### Add new iso
+## Add new iso
 1. download iso file
 1. edit grub.cfg
 1. cp ./usb-pack_efi/boot/grub/grub.cfg /mnt/USB/boot/grub/grub.cfg
