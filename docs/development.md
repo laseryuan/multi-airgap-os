@@ -37,6 +37,7 @@ exit
 ### Mount the usb
 ```
 mkdir /mnt/USB # if the directory does not exist
+sudo umount /dev/sdX1 # if the device is mounted automatically
 sudo mount -t vfat /dev/sdX1 /mnt/USB -o uid=1000,gid=1000,umask=022
 ```
 
@@ -45,15 +46,17 @@ sudo mount -t vfat /dev/sdX1 /mnt/USB -o uid=1000,gid=1000,umask=022
 rsync -auv ./usb-pack_efi/ /mnt/USB
 sudo grub-install --force --removable --boot-directory=/mnt/USB/boot --efi-directory=/mnt/USB/EFI/BOOT /dev/sdX
 
-wget https://stable.release.core-os.net/amd64-usr/current/coreos_production_iso_image.iso -P {iso_folder}
-sha256sum { ubuntu_iso } # check file integrity
 ```
 
 ### Add new iso
 1. download iso file
+  wget https://stable.release.core-os.net/amd64-usr/current/coreos_production_iso_image.iso -P {iso_folder}
 1. edit grub.cfg
-1. cp ./usb-pack_efi/boot/grub/grub.cfg /mnt/USB/boot/grub/grub.cfg
+1. update grub.cfg
+  cp ./usb-pack_efi/boot/grub/grub.cfg /mnt/USB/boot/grub/grub.cfg
 1. add iso file
+  sudo mv /tmp/coreos_production_iso_image.iso /mnt/USB/iso/
+  sha256sum { ubuntu_iso } # check file integrity
 
 ### fix fat partition
 sudo fsck.vfat -a /dev/sdX1

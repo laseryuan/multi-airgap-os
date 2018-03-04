@@ -1,10 +1,18 @@
-1. download iso file
-wget https://stable.release.core-os.net/amd64-usr/current/coreos_production_iso_image.iso -P /tmp/
+## BitKey
+### ISO
+http://mirror.turnkeylinux.org/turnkeylinux/images/iso/turnkey-bitkey-14.2.0-jessie-amd64.iso
 
-1. edit grub.cfg
+### checksum
+https://releases.turnkeylinux.org/turnkey-bitkey/14.2.0-jessie-amd64/turnkey-bitkey-14.2.0-jessie-amd64.iso.hash
+sha256sum turnkey-bitkey-14.2.0-jessie-amd64.iso
 
-1. update grub.cfg
-cp ./usb-pack_efi/boot/grub/grub.cfg /mnt/USB/boot/grub/grub.cfg
+## CoreOS
+### ISO
+https://stable.release.core-os.net/amd64-usr/current/coreos_production_iso_image.iso
 
-1. add iso file
-mv /tmp/coreos_production_iso_image.iso /mnt/USB/iso/
+## Ubuntu
+### ISO
+http://cdimage.ubuntu.com/ubuntustudio/releases/xenial/release/
+
+### Checksum
+http://releases.ubuntu.com/16.04/MD5SUMS
